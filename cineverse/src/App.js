@@ -1,9 +1,14 @@
-import React from "react";
+import React from 'react';
+import PopularMoviesPage from './components/homePage';
+import MovieDetails from './components/movieDetails';
 
-export default() => {
-  return(
+const App = () => {
+  return (
     <div>
-      "Olá mundo"
+      <PopularMoviesPage/>
+      <MovieDetails movieId={299536}/>
     </div>
-  )
-}
+  );
+};
+
+export default App;
