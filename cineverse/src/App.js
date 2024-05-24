@@ -1,14 +1,11 @@
 import React from 'react';
-import PopularMoviesPage from './components/homePage';
-import MovieDetails from './components/movieDetails';
+import RoutesApp from "./routes";
+import { AuthProvider } from "./auth/auth";
 
-const App = () => {
-  return (
-    <div>
-      <PopularMoviesPage/>
-      <MovieDetails movieId={299536}/>
-    </div>
-  );
-};
+const App = () => (
+  <AuthProvider>
+    <RoutesApp/>
+  </AuthProvider>
+);
 
 export default App;

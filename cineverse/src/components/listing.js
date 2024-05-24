@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import midia from '../services/midia';
 
-const Home = () => {
+const Listing = () => {
     const [movieCategories, setMovieCategories] = useState([]);
 
     useEffect(() => {
@@ -50,4 +50,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Listing;
