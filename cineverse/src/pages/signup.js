@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/signup.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/auth";
 
@@ -32,15 +33,33 @@ const SignupPage = () => {
     };
 
     return (
-        <div>
-            <h1>LOGIN</h1>
-            <div>
-                <input type="email" placeholder="Type your e-mail" value={email} onChange={(e) => [setEmail(e.target.value), setError('')]} />
-                <input type="email" placeholder="Confirm your e-mail" value={emailConf} onChange={(e) => [setEmailConf(e.target.value), setError('')]} />
-                <input type="password" placeholder="Type your password" value={senha} onChange={(e) => [setSenha(e.target.value), setError('')]} />
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                <button onClick={handleSignup}>Sign Up</button>
-                <p>
+        <div className="container">
+            <div className="content">
+                <h1 className="label">SIGN UP</h1>
+                <input
+                    type="email"
+                    placeholder="Type your e-mail"
+                    value={email}
+                    onChange={(e) => [setEmail(e.target.value), setError('')]}
+                    className="input"
+                />
+                <input
+                    type="email"
+                    placeholder="Confirm your e-mail"
+                    value={emailConf}
+                    onChange={(e) => [setEmailConf(e.target.value), setError('')]}
+                    className="input"
+                />
+                <input
+                    type="password"
+                    placeholder="Type your password"
+                    value={senha}
+                    onChange={(e) => [setSenha(e.target.value), setError('')]}
+                    className="input"
+                />
+                {error && <p className="label-error">{error}</p>}
+                <button onClick={handleSignup} className="button">Sign Up</button>
+                <p className="label-signup">
                     Already have an account?
                     <strong>
                         <Link to="/">&nbsp;Login</Link>

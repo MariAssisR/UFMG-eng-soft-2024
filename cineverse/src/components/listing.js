@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "../styles/listing.css";
 import midia from '../services/midia';
 
 const Listing = () => {
@@ -35,15 +36,20 @@ const Listing = () => {
     }, []);
 
     return (
-        <div>
+        <div className="listing">
             {movieCategories.map((category) => (
-                <div key={category.slug}>
-                    <h2>{category.title}</h2>
-                    <ul>
+                <div key={category.slug} className="movie-row">
+                    <h2 className="movie-row__title">{category.title}</h2>
+                    <div className="movie-row__posters">
                         {category.items.map((item) => (
-                            <li key={item.id}>{item.name || item.title}</li>
+                            <img 
+                                key={item.id} 
+                                className="movie-row__poster" 
+                                src={`https://image.tmdb.org/t/p/w200${item.poster_path}`} 
+                                alt={item.name || item.title} 
+                            />
                         ))}
-                    </ul>
+                    </div>
                 </div>
             ))}
         </div>

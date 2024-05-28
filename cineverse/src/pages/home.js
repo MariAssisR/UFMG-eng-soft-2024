@@ -1,23 +1,17 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../auth/auth";
+import "../styles/home.css";
+import Navbar from '../components/navBar';
+import Footer from '../components/footer';
 import Listing from '../components/listing';
-import MovieDetails from '../components/movieDetails';
+import MainMovie from '../components/mainMovieDetails';
 
 const HomePage = () => {
-    const { signout } = useAuth();
-    const navigate = useNavigate();
-
     return (
-        <div>
-            <div>
-                <h1>Home</h1>
-                <button onClick={() => [signout(), navigate("/")]}>Logout</button>
-            </div>
-            <div>
-                <Listing />
-                <MovieDetails movieId={299536} />
-            </div>
+        <div className="homepage">
+            <Navbar />
+            <MainMovie />
+            <Listing />
+            <Footer />
         </div>
     );
 };

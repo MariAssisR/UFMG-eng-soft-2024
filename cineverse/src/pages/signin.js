@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/signin.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/auth";
 
@@ -27,17 +28,31 @@ const SigninPage = () => {
     };
 
     return (
-        <div>
-            <h1>LOGIN</h1>
-            <div>
-                <input type="email" placeholder="Type your e-mail" value={email} onChange={(e) => [setEmail(e.target.value), setError('')]} />
-                <input type="password" placeholder="Type your password" value={senha} onChange={(e) => [setSenha(e.target.value), setError('')]} />
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                <button onClick={handleLogin}>Sign In</button>
-                <p>
+        <div className="container">
+            <div className="content">
+                <h1 className="label">Cineverse</h1>
+                <input
+                    type="email"
+                    placeholder="Type your e-mail"
+                    value={email}
+                    onChange={(e) => [setEmail(e.target.value), setError('')]}
+                    className="input"
+                />
+                <input
+                    type="password"
+                    placeholder="Type your password"
+                    value={senha}
+                    onChange={(e) => [setSenha(e.target.value), setError('')]}
+                    className="input"
+                />
+                {error && <p className="label-error">{error}</p>}
+                <button onClick={handleLogin} className="button">Sign In</button>
+                <button className="social-button google">Sign in with Google</button>
+                <button className="social-button facebook">Sign in with Facebook</button>
+                <p className="label-signup">
                     Don't have an account?
                     <strong>
-                    <Link to="/signup">&nbsp;Create Account</Link>
+                        <Link to="/signup">&nbsp;Create Account</Link>
                     </strong>
                 </p>
             </div>

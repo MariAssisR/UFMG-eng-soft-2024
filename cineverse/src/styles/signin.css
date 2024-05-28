@@ -1,0 +1,102 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 100vh;
+    background-color: #1a1a1a; /* Azul marinho */
+  }
+  
+  .content {
+    gap: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0 1px 2px #0003;
+    background-color: #ffffff; /* Branco */
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .label {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a; /* Azul marinho */
+    margin-bottom: 20px;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #0066cc; /* Azul clarinho */
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #005bb5;
+  }
+  
+  .social-button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #fff;
+  }
+  
+  .social-button.google {
+    background-color: #DB4437; /* Cor do Google */
+  }
+  
+  .social-button.facebook {
+    background-color: #4267B2; /* Cor do Facebook */
+  }
+  
+  .social-button:hover {
+    opacity: 0.9;
+  }
+  
+  .label-signup {
+    font-size: 16px;
+    color: #676767; /* Cinza */
+  }
+  
+  .label-error {
+    font-size: 14px;
+    color: red;
+  }
+  
+  strong {
+    cursor: pointer;
+  }
+  
+  strong a {
+    text-decoration: none;
+    color: #676767;
+  }
+  
