@@ -44,14 +44,14 @@
     margin: 10px 0;
     border: none;
     border-radius: 5px;
-    background-color: #0066cc; /* Azul clarinho */
+    background-color: #5e0f8f; /* Azul clarinho */
     color: #fff;
     font-size: 16px;
     cursor: pointer;
   }
   
   .button:hover {
-    background-color: #005bb5;
+    background-color: #000080;
   }
   
   .label-signup {

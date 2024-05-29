@@ -1,0 +1,180 @@
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #2e0249, #000080);
+    color: white;
+    padding: 20px;
+}
+
+.profile-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.back-button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.profile-title {
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+.profile-content {
+    text-align: center;
+}
+
+.profile-username {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.profile-email {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-message {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.profile-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.profile-button {
+    background-color: #444;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.profile-button:hover {
+    background-color: #666;
+}
+
+.select-profile-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #2e0249, #000080);
+    color: white;
+    padding: 20px;
+}
+
+.select-profile-back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.select-profile-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.select-profile-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.select-profile-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.select-profile-item:hover {
+    transform: scale(1.05);
+}
+
+.select-profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.select-profile-name {
+    font-size: 16px;
+}
+
+.payment-history-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #2e0249, #000080);
+    color: white;
+    padding: 20px;
+}
+
+.payment-back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.payment-history-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.payment-account-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.payment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+}
+
+.payment-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+}
+
+.payment-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+

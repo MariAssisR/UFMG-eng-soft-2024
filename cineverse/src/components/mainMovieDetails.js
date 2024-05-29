@@ -1,21 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "../styles/mainMovie.css";
+import midia from '../services/midia';
 
 const MainMovie = () => {
-    // Esta função retornará o filme principal
-    const mainMovie = {
-        title: "Main Movie Title",
-        overview: "This is the overview of the main movie. It gives a brief description of the movie plot.",
-        backdropPath: "path_to_image.jpg" // Substitua pelo caminho da imagem do filme principal
-    };
+    const [movie, setMovie] = useState(null);
+
+    useEffect(() => {
+        const fetchMovie = async () => {
+            try {
+                const results = await midia.searchMoviesByName('Vingadores');
+                if (results && results.length > 0) {
+                    setMovie(results[0]);
+                }
+            } catch (error) {
+                console.error('Error fetching the movie:', error);
+            }
+        };
+
+        fetchMovie();
+    }, []);
+
+    if (!movie) return null;
 
     return (
-        <div className="main-movie" style={{ backgroundImage: `url(${mainMovie.backdropPath})` }}>
-            <div className="main-movie__content">
-                <h1 className="main-movie__title">{mainMovie.title}</h1>
-                <p className="main-movie__overview">{mainMovie.overview}</p>
+        <header className="banner">
+            <img
+                key={movie.id} 
+                className="banner__background"
+                src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                alt={movie.name || movie.title}
+            />
+            <div className="banner__content">
+                <h1 className="banner__title">{movie.title}</h1>
+                <div className="banner__buttons">
+                    <button className="banner__button">Play</button>
+                    <button className="banner__button">My List</button>
+                </div>
+                <p className="banner__description">{movie.overview}</p>
             </div>
-        </div>
+            <div className="banner--fadeBottom"></div>
+        </header>
     );
 };
 
