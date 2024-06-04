@@ -2,9 +2,23 @@ import React from 'react';
 import "../styles/profile.css";
 import { useNavigate } from 'react-router-dom';
 import profilePic from '../assets/profile-pic.jpg';
+import { useAuth } from '../auth/auth';
+import { useEffect, useState } from 'react';
+import axios from '../config/axios';
 
 const ProfilePage = () => {
     const navigate = useNavigate();
+
+    const { user } = useAuth();
+
+    // useEffect(() => {
+        
+    //     if (!user || user.length === 0) {
+    //         navigate("/signup");
+    //     }
+    // }, [user]);
+
+
 
     return (
         <div className="profile-page">
@@ -28,24 +42,55 @@ const ProfilePage = () => {
 const SelectProfilePage = () => {
     const navigate = useNavigate();
 
-    const profiles = [
-        { id: 1, name: 'User 1', pic: profilePic },
-        { id: 2, name: 'User 2', pic: profilePic },
-        { id: 3, name: 'User 3', pic: profilePic },
-        { id: 'new', name: 'Create Profile', pic: profilePic }
-    ];
+    const { user } = useAuth();
+
+    const [profileList, setProfileList] = useState([]);
+
+    useEffect(() => {
+        const loadProfiles = async () => {
+            const res = await axios.post("/profiles/", {
+                uid: user.id
+            });
+            
+            setProfileList(res.data);
+            console.log(res.data);
+        }
+        loadProfiles();
+    }, [])
 
     return (
         <div className="select-profile-page">
             <button className="select-profile-back-button" onClick={() => navigate("/profile")}>←</button>
             <h1 className="select-profile-title">Select Profile</h1>
             <div className="select-profile-list">
-                {profiles.map(profile => (
-                    <div key={profile.id} className="select-profile-item" onClick={() => navigate(profile.id === 'new' ? '/create-profile' : `/profile/${profile.id}`)}>
-                        <img src={profile.pic} alt={profile.name} className="select-profile-pic" />
+                {
+                profileList.length > 0 && 
+                profileList.map(profile => (
+                    <div 
+                    key={profile.uid} 
+                    className="select-profile-item" 
+                    onClick={() => {
+                        setProfileList(profile._id);
+                        navigate(`/home/`);
+                    }}
+                    >
+                        <img src={profile.pic ?? profilePic} alt={profile.name} className="select-profile-pic" />
                         <p className="select-profile-name">{profile.name}</p>
                     </div>
                 ))}
+                {
+                    <div 
+                    // key={profile.uid} 
+                    className="select-profile-item" 
+                    onClick={() => navigate('/create-profile')}
+                    >
+                        <img 
+                        src={profilePic} 
+                        alt="Create Profile" 
+                        className="select-profile-pic" />
+                        <p className="select-profile-name">Create Profile</p>
+                    </div>
+                }
             </div>
         </div>
     );

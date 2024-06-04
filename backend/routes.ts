@@ -10,7 +10,7 @@ import { RemoveProfileController } from "./controllers/RemoveProfileController";
 
 const router = express.Router()
 
-router.get('/users/:uid', async (req : Request, res : Response) => {
+router.get('/users/:id', async (req : Request, res : Response) => {
     try {
         const users = await GetUserController(req.params);
         return res.status(200).send(users);

@@ -5,10 +5,12 @@ import SigninPage from "./pages/signin";
 import SignupPage from "./pages/signup";
 import Midia from "./pages/midias";
 import Profile from "./pages/profile";
+import CreateProfilePage from "./pages/createprofile";
 
 const Private = ({ Item }) => {
-    const { signed } = useAuth();
-    return signed > 0 ? <Item /> : <Navigate to="/" />
+    const { user, signed } = useAuth();
+    if (user) console.log(Object.keys(user).length)
+    return (user && Object.keys(user).length > 0) ? <Item /> : <Navigate to="/" />
 };
 
 const RoutesApp = () => {
@@ -21,6 +23,7 @@ const RoutesApp = () => {
                 <Route exact path='/movies' element={<Private Item={Midia.MoviePage} />} />
                 <Route exact path='/series' element={<Private Item={Midia.SeriePage} />} />
                 <Route exact path='/profile' element={<Private Item={Profile.ProfilePage} />} />
+                <Route exact path='/create-profile' element={<Private Item={CreateProfilePage} />} />
                 <Route exact path='/select-profile' element={<Private Item={Profile.SelectProfilePage} />} />
                 <Route exact path='/pay' element={<Private Item={Profile.PayPage} />} />
                 <Route exact path='/signup' element={<SignupPage />} />
