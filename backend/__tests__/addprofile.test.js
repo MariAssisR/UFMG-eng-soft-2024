@@ -32,3 +32,15 @@ test('AddProfileController should add a new profile', async () => {
   expect(newProfile.photo).toBe('http://example.com/photo.jpg');
   expect(newProfile.kids).toBe(true);
 });
+
+test('AddProfileController should throw an error if uid is missing', async () => {
+  const body = { name: 'Test User', photo: 'http://example.com/photo.jpg', kids: true };
+
+  await expect(AddProfileController(body)).rejects.toThrow('Missing profile fields');
+});
+
+test('AddProfileController should throw an error if name is missing', async () => {
+  const body = { uid: '12345', photo: 'http://example.com/photo.jpg', kids: true };
+
+  await expect(AddProfileController(body)).rejects.toThrow('Missing profile fields');
+});

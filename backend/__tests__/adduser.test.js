@@ -36,3 +36,9 @@ test('AddUserController should throw an error if uid is missing', async () => {
 
   await expect(AddUserController(userData)).rejects.toThrow('Missing task fields');
 });
+
+test('AddUserController should throw an error if name is missing', async () => {
+  const userData = { uid: '12345' };
+
+  await expect(AddUserController(userData)).rejects.toThrow('Missing task fields');
+});
