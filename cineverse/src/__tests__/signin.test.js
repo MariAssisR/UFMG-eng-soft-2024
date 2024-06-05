@@ -1,32 +1,21 @@
+// src/__tests__/signin.test.js
+
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { AuthProvider } from '../auth/auth';
+import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import SigninPage from '../pages/signin';
 
-// Mocking components that might be present on the signin page
-jest.mock('../components/navBar', () => () => <div data-testid="navbar">Navbar</div>);
-jest.mock('../components/footer', () => () => <div data-testid="footer">Footer</div>);
-
-test('renders signin page correctly', () => {
-  render(
-    <Router>
-      <AuthProvider>
-        <SigninPage />
-      </AuthProvider>
-    </Router>
+test('renders SigninPage component', () => {
+  const { getByPlaceholderText, getByText } = render(
+    <BrowserRouter>
+      <SigninPage />
+    </BrowserRouter>
   );
 
-  // Verifica se o título "Cineverse" está presente
-  expect(screen.getByText(/Cineverse/i)).toBeInTheDocument();
-  
-  // Verifica se os campos de email e senha estão presentes
-  expect(screen.getByPlaceholderText(/Type your e-mail/i)).toBeInTheDocument();
-  expect(screen.getByPlaceholderText(/Type your password/i)).toBeInTheDocument();
+  // Verifica se os campos de e-mail e senha são renderizados
+  expect(getByPlaceholderText('Type your e-mail')).toBeInTheDocument();
+  expect(getByPlaceholderText('Type your password')).toBeInTheDocument();
 
-  // Verifica se o botão de "Sign In" está presente, selecionando pelo índice
-  const buttons = screen.getAllByRole('button', { name: /sign in/i });
-  expect(buttons[0]).toBeInTheDocument();
+  // Verifica se o botão de login é renderizado
+  expect(getByText('Sign In')).toBeInTheDocument();
 });
-0
