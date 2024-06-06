@@ -12,6 +12,7 @@
 3. instale dependências e execute o Backend:
   - cd backend
   - npm install
+  - npm run build
   - npm start 
 <br />
 A aplicação será executada no: http://localhost:3000
